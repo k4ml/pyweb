@@ -1,9 +1,27 @@
 % rebase('base.html', title='Page Title')
-<p>Hello <b>{{ name }}</p>
 
-<h1>All</h1>
-<ul>
-  % for person in people:
-    <li>{{person.name}}</li>
-  % end
-</ul>
+<div class="card">
+    <div class="card-body">
+        <p>Hello <b>{{ name }}</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h1>All</h1>
+        <ul class="people">
+          % for person in people:
+          <li>
+            <span>{{person.name}}</span>
+            <a up-layer="new" up-content='Are you sure?
+                <form up-submit up-target=".people" up-layer="root" class="d-inline" method="POST" action="/hello/{{person.name}}">
+                    <input name="submit" type="submit" value="Yes" class="btn btn-danger mr-3"/>
+                    <a href="#" class="btn btn-secondary"  up-dismiss>No</a>
+                </form>'
+            >
+            <i class="bi bi-trash3" ></i></a>
+          </li>
+          % end
+        </ul>
+    </div>
+</div>
