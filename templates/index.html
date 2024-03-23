@@ -1,0 +1,9 @@
+% rebase('base.html', title='Page Title')
+<p>Hello <b>{{ name }}</p>
+
+<h1>All</h1>
+<ul>
+  % for person in people:
+    <li>{{person.name}}</li>
+  % end
+</ul>
